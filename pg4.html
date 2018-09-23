@@ -81,7 +81,7 @@ input [type="text"] , .three select{
     box-sizing: border-box;
 }
 
-.four input[type="text"]{
+.four input[type="password"]{
 	width: 10%;
     padding: 12px 20px;
     margin: 10px 90px ;
@@ -93,6 +93,16 @@ input [type="text"] , .three select{
 
 .five input[type="mobile"]{
 	width: 15%;
+    padding: 12px 20px;
+    margin: 10px 90px ;
+    display: block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input [type="text"] , .ten select{
+  width: 30%;
     padding: 12px 20px;
     margin: 10px 90px ;
     display: block;
@@ -191,18 +201,19 @@ input [type="text"] , .three select{
 <div class="col-sm-12">
   <form>
 	<h1><center style="background-color: rgba(38,38,38, 0.3);color: black;font-family: Comic Sans MS;font-size: 30px;">Select a Payment Mode  <span class="fa fa-inr" style="font-size:36px"></span></center></h1>
-	<div>          
-                <input type=radio name=formOfPayment id=formOfPayment value=CreditCard style="height:20px; width:20px;" />
-        <label  style="margin-top: 10px; margin-left: 10px;font-family: Comic Sans MS;"><font style="background-color: rgba(48,58,38, 0.1);font-family: Comic Sans MS;font-size:22px;">CREDIT CARD  <span class="fa fa-cc-visa" style="font-size:30px"></span></font></label>            
+	
+  <br><br><br><div id="six">          
+                <input type=radio name=rb1 id=r1 value=CreditCard style="height:20px; width:20px;" />
+        <label  style="margin-top: 10px; margin-left: 10px;font-family: Comic Sans MS;"><font style="background-color: rgba(48,58,38, 0.1);font-family: Comic Sans MS;font-size:22px;">CREDIT CARD  <span class="fa fa-credit-card-alt" style="font-size:30px"></span></font></label>            
         </div>      
-        <div class="one">
+        <div class="one" id="one">
         <label  style="margin-top: 10px; margin-left: 90px;"><font style="font-family: Comic Sans MS;font-size:20px;">Card Number</font></label>
         
-            <input type="text" id="cc_no" name="cc_no" value="" required>
+            <input type="text" id="cc_no" name="cc_no" value="" pattern="[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}" placeholder="XXXX-XXXX-XXXX-XXXX" required>
           </div>
               
-        <label  style="margin-top: 10px; margin-left: 90px;"><font style="font-family: Comic Sans MS;font-size:20px;">Expiry Date</font></label>
-          <div class="two">
+          <div class="two" id="two">
+            <label  style="margin-top: 10px; margin-left: 90px;"><font style="font-family: Comic Sans MS;font-size:20px;">Expiry Date</font></label>
              <select style="color: black; background-color: white" required>
                             <option value="" disabled selected>Month</option>
                             <option value="1">January</option>                                 
@@ -219,7 +230,7 @@ input [type="text"] , .three select{
                             <option value="12">December</option>                             
                         </select> 
                         </div>                       
-             <div class="three">       
+             <div class="three" id="three">       
                     <select style="color: black; background-color: white" required>
                             <option value="" disabled selected>Year</option>                             
                             <option value="2018">2018</option>                           
@@ -233,29 +244,53 @@ input [type="text"] , .three select{
                     </select>                         
                         </div>   
 
-          <div class="four">
+          <div class="four" id="four">
         <label  style="margin-top: 10px; margin-left: 90px;"><font style="font-family: Comic Sans MS;font-size:20px;">CVV</font></label>
         
-            <input type="text" required>
+            <input type="password" pattern="[0-9]{4}" placeholder="XXXX" required>
 
          </div>        
 
-          <div>          
-                <br><input type=radio name=formOfPayment id=formOfPayment value=CreditCard style="height:20px; width:20px;"/>
+          <div id="seven">          
+                <br><input type=radio name=rb1 id=r2 value=CreditCard style="height:20px; width:20px;"/>
                     <label  style="margin-top: 10px; margin-left: 10px;"><font style="background-color: rgba(48,58,38, 0.1);font-family: Comic Sans MS;font-size:22px;">E-WALLET  <span class="fa fa-google-wallet" style="font-size:30px;"></span></font></label>            
         </div>  
 
-          <div class="five">
+          <div class="five" id="five">
         <label  style="margin-top: 10px; margin-left: 90px;"><font style="font-family: Comic Sans MS;font-size:20px;">Mobile Number</font></label>
         
             <input type="mobile" pattern="[1-9]{1}[0-9]{9}" required>
 
          </div> 
+         <br>
+
+         <div id="nine">          
+                <input type=radio name=rb1 id=r3 value=CreditCard style="height:20px; width:20px;" />
+        <label  style="margin-top: 10px; margin-left: 10px;font-family: Comic Sans MS;"><font style="background-color: rgba(48,58,38, 0.1);font-family: Comic Sans MS;font-size:22px;">NET BANKING  <span class="fa fa-bank" style="font-size:30px"></span></font></label>            
+          <div class="ten" id="ten">
+            <label  style="margin-top: 10px; margin-left: 90px;"><font style="font-family: Comic Sans MS;font-size:20px;">Select Bank</font></label>
+             <select style="color: black; background-color: white" required>
+                            <option value="" disabled selected>Bank Names</option>
+                            <option value="1">State Bank of India</option>                                 
+                            <option value="2">Axis Bank</option>                              
+                            <option value="3">ICICI Bank</option>                           
+                            <option value="4">HDFC Bank</option>                           
+                            <option value="5">Maharashtra Bank</option>                            
+                            <option value="6">Bank of India</option>                            
+                            <option value="7">Punjab National Bank</option>                           
+                            <option value="8">Union Bank</option>                             
+                            <option value="9">Bank of Baroda</option>                     
+                            <option value="10">Canara Bank</option>                              
+                            <option value="11">IDBI Bank</option>                             
+                            <option value="12">Other Banks</option>                             
+                        </select> 
+                        </div>
        
        <div class="six">
        	<input type="submit" value="Pay Now">
        </div>
      </form>
+   </div>
 </div>
 </div>
 </div>
@@ -318,5 +353,28 @@ input [type="text"] , .three select{
   </div>
 </footer>
 
+<script>
+     $(function() {
+    $('input[name=rb1]').on('click init-rb1', function() {
+        $('#one,#two,#three,#four,#five').toggle($('#r1').prop('checked'));
+    }).trigger('init-rb1');
+});   
+
+$(function() {
+    $('input[name=rb1]').on('click init-rb1', function() {
+        $('#five').toggle($('#r2').prop('checked'));
+    }).trigger('init-rb1');
+});
+
+$(function() {
+    $('input[name=rb1]').on('click init-rb1', function() {
+        $('#ten').toggle($('#r3').prop('checked'));
+    }).trigger('init-rb1');
+});
+     
+    </script>
+
+
 </body>
 </html>
+
